@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
-import Searcher from './Pages/Searcher';
+import TestPage from './Pages/TestPage';
 
 import './styles/base.scss'
 
 ReactDOM.render(
   <React.StrictMode>
-    <Searcher />
+    <TestPage />
   </React.StrictMode>,
   document.getElementById('root')
 );

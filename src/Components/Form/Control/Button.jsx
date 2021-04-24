@@ -1,8 +1,5 @@
 import React from 'react-dom';
 
-// import './styles/form.scss'
-// import Logo from '../../assets/Logo_ML@2x.png.png'
-
 const Button = (props) => {
 
     return (
