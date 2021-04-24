@@ -7,11 +7,13 @@ import Button from '../../Components/Form/Control/Button';
 
 const SearchBar = (props) => (
     <Form>
-        <Img src={props.src} />
-        <Input />
-        <Button>
-            <Icon />
-        </Button>
+        <div className="d-flex w-75 justify-content-center">
+            <Img src={props.src} />
+            <Input />
+            <Button>
+                <Icon />
+            </Button>
+        </div>
     </Form>
 );
 

@@ -1,11 +1,4 @@
-import React from 'react-dom';
-import NavBar from '../Components/Nav/NavBar';
-import NavBarContent from '../Components/Nav/NavBarContent';
-import SearchBar from '../Components/Nav/SearchBar';
-
-import Logo from '../assets/Logo_ML@2x.png.png';
-
-const Searcher = () => {
+const Section = () => {
     return (
     <div>
         <NavBar>
@@ -24,4 +17,4 @@ const Searcher = () => {
     )
 }
 
-export default Searcher;
+export default Section;
