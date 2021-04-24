@@ -1,4 +1,5 @@
 @import './variables';
 
 // Merge the maps
-$theme-colors: map-merge($theme-colors, $meli);
+$theme-colors: map-merge($theme-colors, $meli-colors);
+$spacers: map-merge($spacers, $meli-spacers);
