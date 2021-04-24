@@ -1,5 +1,4 @@
 import React from 'react-dom';
-import './styles/navbar.scss'
 
 const NavBarContent = (props) => (
     <div className="container-fluid">

@@ -13,6 +13,9 @@ const Searcher = () => {
                 <SearchBar src={Logo} />
             </NavBarContent>
         </NavBar>
+        <div>
+            cdcdc
+        </div>
     </div>
     )
 }
