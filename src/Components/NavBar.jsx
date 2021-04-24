@@ -10,7 +10,9 @@ const NavBar = () => {
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <form className="d-flex mx-auto">
                     <input className="form-control-meli" type="text" placeholder="Search" aria-label="Search" />
-                    <button className="btn-meli btn-outline-success" type="submit">Search</button>
+                    <button className="btn-meli btn-outline-success" type="submit">
+                        <i class="bi bi-search"></i>
+                    </button>
                 </form>
             </div>
         </div>
