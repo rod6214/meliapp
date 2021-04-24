@@ -1,12 +1,12 @@
 @import "node_modules/bootstrap/scss/functions";
 @import "node_modules/bootstrap/scss/variables";
 
-@import "./custom-maps.scss";
+@import "./custom-themes.scss";
 
 @import "node_modules/bootstrap/scss/mixins";
 @import "node_modules/bootstrap/scss/utilities";
 
-@import "./custom-styles.scss";
+@import "./custom-merge.scss";
 
 // Layout & components
 @import "node_modules/bootstrap/scss/root";
@@ -40,6 +40,7 @@
 @import "node_modules/bootstrap/scss/spinners";
 @import "node_modules/bootstrap/scss/offcanvas";
 @import "./forms/custom-control";
+@import "./buttons";
 
 // Helpers
 @import "node_modules/bootstrap/scss/helpers";

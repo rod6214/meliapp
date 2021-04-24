@@ -1,7 +1,4 @@
-// Create your own map
-$meli: (
-  "meli": #FFE600
-);
+@import './variables';
 
 // Merge the maps
 $theme-colors: map-merge($theme-colors, $meli);
