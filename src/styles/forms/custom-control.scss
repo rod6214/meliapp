@@ -1,8 +1,6 @@
 //
 // General form controls (plus a few specific high-level interventions)
 //
-$input-border-width: 0;
-
 @media (min-width: 600px) {
     .form-control-meli {
         width: 500px;
@@ -70,12 +68,12 @@ $input-border-width: 0;
 //       height: if(unit($input-line-height) == "", $input-line-height * 1em, $input-line-height);
 //     }
   
-//     // Placeholder
-    // &::placeholder {
-    //   color: $input-placeholder-color;
-    //   // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526.
-    //   opacity: 1;
-    // }
+    // Placeholder
+    &::placeholder {
+      color: $input-placeholder-color;
+      // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526.
+      opacity: 1;
+    }
   
 //     // Disabled and read-only inputs
 //     //
