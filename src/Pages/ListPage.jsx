@@ -2,7 +2,7 @@ import React from 'react-dom';
 import NavBar from '../Components/Nav/NavBar';
 import NavBarContent from '../Components/Nav/NavBarContent';
 import SearchBar from '../Components/Nav/SearchBar';
-
+import Section from '../Components/Container/Section'
 import Logo from '../assets/Logo_ML@2x.png.png';
 
 const Searcher = () => {
@@ -13,13 +13,9 @@ const Searcher = () => {
                 <SearchBar src={Logo} />
             </NavBarContent>
         </NavBar>
-        <div className="container-fluid">
-            <div className="d-flex justify-content-center">
-                <div className="w-75" style={{backgroundColor: 'white', height: '100px'}}>
-
-                </div>
-            </div>
-        </div>
+        <Section>
+            <div className="w-75" style={{backgroundColor: 'white', height: '100px'}}></div>
+        </Section>
     </div>
     )
 }
