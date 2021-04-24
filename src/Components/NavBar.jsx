@@ -11,7 +11,7 @@ const NavBar = () => {
             
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <form className="d-flex mx-auto">
-                    <img src={Logo} width="60" alt="logo"/>
+                    <img className="me-6" src={Logo} width="60" alt="logo"/>
                     <input className="form-control-meli rounded-start" type="text" placeholder="Nunca dejes de buscar" aria-label="Search" />
                     <button className="btn-meli bg-grey-meli border-grey-meli rounded-end rounded-0" type="submit">
                         <i className="bi bi-search"></i>
