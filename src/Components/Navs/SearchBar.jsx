@@ -13,7 +13,7 @@ const SearchBar = (props) => {
             <Flex width={75} maxWidth={props.maxWidth} alignment="justify-content-center">
                 <Img me={6} src={props.src} alt="logo" width={60}/>
                 <Input />
-                <Button>
+                <Button type="submit" search>
                     <Icon />
                 </Button>
             </Flex>
