@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
-import TestPage from './Pages/ListPage';
+import TestPage from './Pages/ResultsPage';
 
 // import './styles/base.scss'
 
