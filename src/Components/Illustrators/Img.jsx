@@ -13,7 +13,7 @@ const Img = (props) => {
         width = props.width;
     }
 
-    return (<img className={imgClass} src={props.src} width={width} alt="logo"/>);
+    return (<img className={imgClass} src={props.src} width={width} alt={props.alt}/>);
 }
 
 export default Img;
