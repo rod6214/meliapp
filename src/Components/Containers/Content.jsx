@@ -3,8 +3,11 @@ import Flex from '../Containers/Flex';
 
 const Content = (props) => {
 
-    let containerClass = "w-75";
+    let containerClass = "";
     
+    if (Number.isInteger(props.width))
+        containerClass += `w-${props.width}`;
+
     if (props.rounded)
         containerClass += ` rounded-${props.rounded}`;
     else

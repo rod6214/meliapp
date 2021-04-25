@@ -21,7 +21,7 @@ const ListPage = () => {
             </NavBarContent>
         </NavBar>
         <Section rounded={4}>
-            <Content>
+            <Content width={75}>
                 <div className="bg-grey-meli pb-7 pt-7 text-grey-dark-meli">
                     <p className="d-inline fs-8">Electronica, Audio y Video</p> &gt; 
                     <p className="d-inline fs-8">iPod</p> &gt; 
@@ -32,8 +32,7 @@ const ListPage = () => {
             </Content>
         </Section>
         <Section>
-
-            <Content rounded={4} backgroundColor='white'>
+            <Content rounded={4} width={75} backgroundColor='white'>
                 <Row padding={7}>
                     <Col>
                         <div className="d-flex">
