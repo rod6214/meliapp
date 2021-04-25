@@ -1,8 +1,8 @@
 import React from 'react-dom';
 import Form from '../Forms/Form';
 import Input from '../Forms/Control/Input';
-import Img from '../Illustrations/Img';
-import Icon from '../Illustrations/Icon';
+import Img from '../Illustrators/Img';
+import Icon from '../Illustrators/Icon';
 import Button from '../Forms/Control/Button';
 
 const SearchBar = (props) => (
