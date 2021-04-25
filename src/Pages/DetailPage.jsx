@@ -34,7 +34,7 @@ const DetailPage = () => {
                     </Flex>
                 <div>
                     <h2 className="pb-8">Descripcion del producto</h2>
-                    <p className="w-75">The Scarpe di Bianco footwear was founded by Bill White in 2009. Di Bianco offers classic handmade men's shoes with a modern twist. The combination of timeless models and details with contemporary colors and styling, results in decidedly current, yet, elegant models. The aim of the Scarpe di Bianco company is to offer men a custom shoe buying experience trough a multitude of models, lasts, soles, leathers, and color options.</p>
+                    <p className="w-75 text-grey-dark-meli">The Scarpe di Bianco footwear was founded by Bill White in 2009. Di Bianco offers classic handmade men's shoes with a modern twist. The combination of timeless models and details with contemporary colors and styling, results in decidedly current, yet, elegant models. The aim of the Scarpe di Bianco company is to offer men a custom shoe buying experience trough a multitude of models, lasts, soles, leathers, and color options.</p>
                 </div>
             </Content>
         </Section>
