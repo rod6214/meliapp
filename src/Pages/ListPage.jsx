@@ -13,7 +13,7 @@ const ListPage = () => {
                 <SearchBar src={Logo} />
             </NavBarContent>
         </NavBar>
-        <Section>
+        <Section rounded={4}>
             <div className="w-75 bg-grey-meli pb-7 pt-7 text-grey-dark-meli">
                 <p className="d-inline fs-8">Electronica, Audio y Video</p> &gt; 
                 <p className="d-inline fs-8">iPod</p> &gt; 
@@ -23,7 +23,7 @@ const ListPage = () => {
             </div>
         </Section>
         <Section>
-            <div className="w-75" style={{backgroundColor: 'white', height: '100px'}}></div>
+            <div className="w-75 rounded-4" style={{backgroundColor: 'white', height: '100px'}}></div>
         </Section>
     </div>
     )

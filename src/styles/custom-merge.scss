@@ -1,5 +1,6 @@
 $utilities:map-remove($utilities, "rounded-end");
 $utilities:map-remove($utilities, "rounded-start");
+$utilities:map-remove($utilities, "rounded");
 
 $utilities:map-merge($utilities, (
   "rounded-end": (
@@ -15,5 +16,22 @@ $utilities:map-merge($utilities, (
       class: rounded-start,
       values: (null: $border-radius-meli)
     )
+));
+
+$utilities:map-merge($utilities, (
+  "rounded": (
+    property: border-radius,
+    class: rounded,
+    values: (
+      null: $border-radius,
+      0: 0,
+      1: $border-radius-sm,
+      2: $border-radius,
+      3: $border-radius-lg,
+      4: $border-radius-meli,
+      circle: 50%,
+      pill: $border-radius-pill
+    )
+  )
 ));
 
