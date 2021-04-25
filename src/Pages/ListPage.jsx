@@ -1,10 +1,13 @@
 import React from 'react-dom';
-import NavBar from '../Components/Nav/NavBar';
-import NavBarContent from '../Components/Nav/NavBarContent';
-import SearchBar from '../Components/Nav/SearchBar';
-import Section from '../Components/Container/Section'
-import Page from '../Components/Container/Page';
-import Content from '../Components/Container/Content'
+import NavBar from '../Components/Navs/NavBar';
+import NavBarContent from '../Components/Navs/NavBarContent';
+import SearchBar from '../Components/Navs/SearchBar';
+import Section from '../Components/Containers/Section'
+import Page from '../Components/Containers/Page';
+import Content from '../Components/Containers/Content'
+import Row from '../Components/Containers/Row';
+import Col from '../Components/Containers/Col';
+
 import Logo from '../assets/Logo_ML@2x.png.png';
 
 const ListPage = () => {
@@ -25,8 +28,18 @@ const ListPage = () => {
             </div>
         </Section>
         <Section>
-            <Content rounded={4}>
-                
+            <Content rounded={4} padding={2}>
+                <Row>
+                    <Col span={2}>
+                        pepe 1
+                    </Col>
+                    <Col span={8}>
+                        pepe 2
+                    </Col>
+                    <Col span={2}>
+                        pepe 2
+                    </Col>
+                </Row>
             </Content>
         </Section>
     </Page>

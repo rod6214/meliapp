@@ -8,9 +8,13 @@ const Content = (props) => {
         containerClass += ` rounded-${props.rounded}`;
     else
         containerClass += ` rounded-0`;
+
+    if (props.padding) {
+        containerClass += ` p-${props.padding}`;
+    }
     
     return (
-    <div className={containerClass} style={{backgroundColor: 'white', height: '100px'}}>
+    <div className={containerClass} style={{backgroundColor: 'white'}}>
         {props.children}
     </div>);
 }
