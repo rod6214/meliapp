@@ -5,7 +5,7 @@ import SearchBar from '../Components/Nav/SearchBar';
 import Section from '../Components/Container/Section'
 import Logo from '../assets/Logo_ML@2x.png.png';
 
-const Searcher = () => {
+const ListPage = () => {
     return (
     <div>
         <NavBar>
@@ -29,4 +29,4 @@ const Searcher = () => {
     )
 }
 
-export default Searcher;
+export default ListPage;
