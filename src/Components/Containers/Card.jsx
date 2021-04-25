@@ -20,13 +20,13 @@ const Card = (props) => {
                             me={7}
                             />
                         <div>
-                            <p className="fs-10 mb-8 mt-1 fe d-inline-block">{`$ ${props.price}`}</p>
+                            <p className="fs-11 mb-8 mt-1 fe d-inline-block">{`$ ${props.price}`}</p>
                             {props.free_shipping && <Img inlineBlock
                                                             src={Shipping}
                                                             alt="Shipping"
                                                             alignment="align-baseline"
                                                             ms={2}/>}
-                            <p className="fs-9">{props.title}</p>
+                            <p className="fs-10">{props.title}</p>
                         </div>
                         <div className="mx-auto">
                             <p className="fs-8 mb-0 mt-3 d-block">{props.state_name}</p>
