@@ -1,11 +1,20 @@
 // Create your own map
 $meli-colors: (
   "yelow-meli": #FFE600,
-  "grey-meli": #EEEEEE 
+  "grey-meli": #EEEEEE,
+  "grey-dark-meli": #999999,
 );
 
 $meli-spacers: (
-  6: 3%
+  6: 3%,
+  7: 16px,
+);
+
+$meli-font-sizes: (
+  7: 12px,
+  8: 14px,
+  9: 18px,
+  10: 24px,
 );
 // Custom variables
 $border-radius-meli: 4px;

@@ -3,3 +3,4 @@
 // Merge the maps
 $theme-colors: map-merge($theme-colors, $meli-colors);
 $spacers: map-merge($spacers, $meli-spacers);
+$font-sizes: map-merge($font-sizes, $meli-font-sizes);

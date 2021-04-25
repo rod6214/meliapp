@@ -14,6 +14,15 @@ const Searcher = () => {
             </NavBarContent>
         </NavBar>
         <Section>
+            <div className="w-75 bg-grey-meli pb-7 pt-7 text-grey-dark-meli">
+                <p className="d-inline fs-8">Electronica, Audio y Video</p> &gt; 
+                <p className="d-inline fs-8">iPod</p> &gt; 
+                <p className="d-inline fs-8">Repoductores</p> &gt;
+                <p className="d-inline fs-8">iPod touch</p> &gt; 
+                <p className="d-inline fs-8 fw-bold">32 GB</p>
+            </div>
+        </Section>
+        <Section>
             <div className="w-75" style={{backgroundColor: 'white', height: '100px'}}></div>
         </Section>
     </div>
