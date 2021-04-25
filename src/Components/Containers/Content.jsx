@@ -18,7 +18,7 @@ const Content = (props) => {
     
     
     return (
-    <Flex>
+    <Flex alignment="justify-content-center">
         <div className={containerClass} style={{backgroundColor: props.backgroundColor, maxWidth: props.maxWidth}}>
             {props.children}
         </div>

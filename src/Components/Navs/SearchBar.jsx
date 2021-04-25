@@ -10,7 +10,7 @@ const SearchBar = (props) => {
 
     return (
         <Form width={100} alignment="justify-content-center" flex>
-            <Flex width={75} maxWidth={props.maxWidth}>
+            <Flex width={75} maxWidth={props.maxWidth} alignment="justify-content-center">
                 <Img me={6} src={props.src} alt="logo" width={60}/>
                 <Input />
                 <Button>
