@@ -10,12 +10,12 @@ import { Link } from "react-router-dom";
 const SearchBar = (props) => {
 
     return (
-        <Form width={100} alignment="justify-content-center" flex>
+        <Form action="/items" width={100} alignment="justify-content-center" flex>
             <Flex width={75} maxWidth={props.maxWidth} alignment="justify-content-center">
                 <Link className="me-6" to="/">
                     <Img src={props.src} alt="logo" width={60}/>
                 </Link>
-                <Input />
+                <Input name="search" />
                 <Button type="submit" search>
                     <Icon />
                 </Button>

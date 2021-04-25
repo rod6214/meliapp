@@ -14,7 +14,7 @@ const Form = (props) => {
         formClass += ` ${props.alignment}`;
 
     return (
-        <form className={formClass}>
+        <form action={props.action} className={formClass}>
             {props.children}
         </form>
     )
