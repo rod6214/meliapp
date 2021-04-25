@@ -21,18 +21,20 @@ const ListPage = () => {
             </NavBarContent>
         </NavBar>
         <Section rounded={4}>
-            <div className="w-75 bg-grey-meli pb-7 pt-7 text-grey-dark-meli">
-                <p className="d-inline fs-8">Electronica, Audio y Video</p> &gt; 
-                <p className="d-inline fs-8">iPod</p> &gt; 
-                <p className="d-inline fs-8">Repoductores</p> &gt;
-                <p className="d-inline fs-8">iPod touch</p> &gt; 
-                <p className="d-inline fs-8 fw-bold">32 GB</p>
-            </div>
+            <Content>
+                <div className="bg-grey-meli pb-7 pt-7 text-grey-dark-meli">
+                    <p className="d-inline fs-8">Electronica, Audio y Video</p> &gt; 
+                    <p className="d-inline fs-8">iPod</p> &gt; 
+                    <p className="d-inline fs-8">Repoductores</p> &gt;
+                    <p className="d-inline fs-8">iPod touch</p> &gt; 
+                    <p className="d-inline fs-8 fw-bold">32 GB</p>
+                </div>
+            </Content>
         </Section>
         <Section>
-            <Content rounded={4}>
+
+            <Content rounded={4} backgroundColor='white'>
                 <Row padding={7}>
-                    
                     <Col>
                         <div className="d-flex">
                             <Img inlineBlock 

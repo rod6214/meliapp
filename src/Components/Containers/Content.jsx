@@ -1,4 +1,5 @@
 import React from 'react-dom';
+import Flex from '../Containers/Flex';
 
 const Content = (props) => {
 
@@ -9,14 +10,16 @@ const Content = (props) => {
     else
         containerClass += ` rounded-0`;
 
-    if (props.padding) {
+    if (props.padding)
         containerClass += ` p-${props.padding}`;
-    }
+    
     
     return (
-    <div className={containerClass} style={{backgroundColor: 'white'}}>
-        {props.children}
-    </div>);
+    <Flex>
+        <div className={containerClass} style={{backgroundColor: props.backgroundColor}}>
+            {props.children}
+        </div>
+    </Flex>);
 }
 
 export default Content;

@@ -4,16 +4,17 @@ import Input from '../Forms/Control/Input';
 import Img from '../Illustrators/Img';
 import Icon from '../Illustrators/Icon';
 import Button from '../Forms/Control/Button';
+import Flex from '../Containers/Flex';
 
 const SearchBar = (props) => (
     <Form>
-        <div className="d-flex w-75 justify-content-center">
+        <Flex width={75}>
             <Img me={6} src={props.src} alt="logo" width={60}/>
             <Input />
             <Button>
                 <Icon />
             </Button>
-        </div>
+        </Flex>
     </Form>
 );
 
