@@ -3,8 +3,6 @@ import Section from '../Components/Containers/Section'
 import Page from '../Components/Containers/Page';
 import Content from '../Components/Containers/Content';
 import Navigator from '../Components/Navs/Navigator';
-import Row from '../Components/Containers/Row';
-import Col from '../Components/Containers/Col';
 import Flex from '../Components/Containers/Flex';
 import Img from '../Components/Illustrators/Img';
 import Button from '../Components/Forms/Control/Button';
