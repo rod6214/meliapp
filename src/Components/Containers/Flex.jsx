@@ -8,7 +8,7 @@ const Flex = (props) => {
         flexClass += ` w-${props.width}`
 
     return (
-    <div className={flexClass}>
+    <div className={flexClass} style={{maxWidth: props.maxWidth}}>
         {props.children}
     </div>
     );

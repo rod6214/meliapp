@@ -2,7 +2,10 @@ import React from 'react-dom';
 
 const Form = (props) => {
 
-    let formClass = 'w-100';
+    let formClass = '';
+
+    if (Number.isInteger(props.width))
+        formClass += `w-${props.width}`
 
     if (props.flex)
         formClass += ` d-flex`;
@@ -18,7 +21,3 @@ const Form = (props) => {
 }
 
 export default Form;
-
-{/* <form className="w-100 d-flex justify-content-center">
-            {props.children}
-        </form> */}

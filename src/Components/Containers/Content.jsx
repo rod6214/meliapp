@@ -19,7 +19,7 @@ const Content = (props) => {
     
     return (
     <Flex>
-        <div className={containerClass} style={{backgroundColor: props.backgroundColor}}>
+        <div className={containerClass} style={{backgroundColor: props.backgroundColor, maxWidth: props.maxWidth}}>
             {props.children}
         </div>
     </Flex>);
