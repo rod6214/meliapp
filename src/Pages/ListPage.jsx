@@ -3,11 +3,13 @@ import NavBar from '../Components/Nav/NavBar';
 import NavBarContent from '../Components/Nav/NavBarContent';
 import SearchBar from '../Components/Nav/SearchBar';
 import Section from '../Components/Container/Section'
+import Page from '../Components/Container/Page';
+import Content from '../Components/Container/Content'
 import Logo from '../assets/Logo_ML@2x.png.png';
 
 const ListPage = () => {
     return (
-    <div>
+    <Page>
         <NavBar>
             <NavBarContent>
                 <SearchBar src={Logo} />
@@ -23,9 +25,11 @@ const ListPage = () => {
             </div>
         </Section>
         <Section>
-            <div className="w-75 rounded-4" style={{backgroundColor: 'white', height: '100px'}}></div>
+            <Content rounded={4}>
+                
+            </Content>
         </Section>
-    </div>
+    </Page>
     )
 }
 
