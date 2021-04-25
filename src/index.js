@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
-import ResultsPage from './Pages/ResultsPage';
+// import ResultsPage from './Pages/ResultsPage';
+import DetailPage from './Pages/DetailPage';
 
 import NavBar from './Components/Navs/NavBar';
 import NavBarContent from './Components/Navs/NavBarContent';
@@ -17,7 +18,8 @@ const App = () => (
               <SearchBar src={Logo} maxWidth="1100px" />
           </NavBarContent>
       </NavBar>
-      <ResultsPage />
+      {/* <ResultsPage /> */}
+      <DetailPage />
   </Page>
 );
 

@@ -1,13 +1,12 @@
 import React from 'react-dom';
-// import { useState } from 'react'
 
 const Section = (props) => {
+    let sectionClass = 'container-fluid';
+    if (Number.isInteger(props.width))
+        sectionClass += ` w-${props.width}`;
     return (
-    <div className="container-fluid">
+    <div className={sectionClass}>
         {props.children}
-        {/* <div className="d-flex justify-content-center">
-            
-        </div> */}
     </div>
     );
 }
