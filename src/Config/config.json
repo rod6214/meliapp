@@ -1,1 +1,16 @@
-{}
+{
+    "routes": [
+        {
+            "function": "search",
+            "path": "https://api.mercadolibre.com/sites/MLA/search?q="
+        },
+        {
+            "function": "getItem",
+            "path": "https://api.mercadolibre.com/items/:id"
+        },
+        {
+            "function": "getDescription",
+            "path": "https://api.mercadolibre.com/items/:id/description"
+        }
+    ]
+}
