@@ -13,19 +13,19 @@ import tagLinksMock from '../mocks/tagLinks.json'
 const ResultsPage = () => {
     const [searchResult, setSearchResult] = useState([]);
     const { search } = useService().meliData;
-    const getQuery = useQuery().get('search');
+    const query = useQuery().get('search');
 
     useEffect(() => {
         try {
-            async function fetchProduct() {
-                const matchedItems = await search(getQuery, 4);
+            const fetchProducts = async () => {
+                const matchedItems = await search(query, 4);
                 setSearchResult(matchedItems);
             }
-            fetchProduct();
+            fetchProducts();
         } catch (error) {
             console.error(error);
         }
-    }, [search, getQuery]);
+    }, [search, query]);
 
     return (
         <Page>
