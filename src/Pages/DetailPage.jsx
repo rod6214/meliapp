@@ -13,6 +13,7 @@ import tagLinksMock from '../mocks/tagLinks.json'
 const DetailPage = () => {
     let { id } = useParams();
     const [product, setProduct] = useState({});
+    const [loaded, setLoaded] = useState(false);
     const { getItem } = useService().meliData;
     
     useEffect(() => {
@@ -20,6 +21,7 @@ const DetailPage = () => {
             const fetchProduct = async () => {
                 const item = await getItem(id);
                 setProduct(item);
+                setLoaded(true);
             };
 
             fetchProduct();
@@ -27,6 +29,8 @@ const DetailPage = () => {
             console.error(error);
         }
     }, [id, getItem]);
+
+    if (!loaded) return (<></>);
 
     return (
     <Page>

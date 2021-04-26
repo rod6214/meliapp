@@ -12,6 +12,7 @@ import tagLinksMock from '../mocks/tagLinks.json'
 
 const ResultsPage = () => {
     const [searchResult, setSearchResult] = useState([]);
+    const [loaded, setLoaded] = useState(false);
     const { search } = useService().meliData;
     const query = useQuery().get('search');
 
@@ -20,12 +21,15 @@ const ResultsPage = () => {
             const fetchProducts = async () => {
                 const matchedItems = await search(query, 4);
                 setSearchResult(matchedItems);
+                setLoaded(true);
             }
             fetchProducts();
         } catch (error) {
             console.error(error);
         }
     }, [search, query]);
+
+    if (!loaded) return (<></>);
 
     return (
         <Page>
