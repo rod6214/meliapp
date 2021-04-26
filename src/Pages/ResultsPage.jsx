@@ -1,13 +1,22 @@
 import React from 'react-dom';
+import { useEffect, useState } from 'react';
 import Section from '../Components/Containers/Section'
 import Page from '../Components/Containers/Page';
 import Content from '../Components/Containers/Content';
 import Card from '../Components/Containers/Card';
 import Navigator from '../Components/Navs/Navigator';
+import { useService } from '../CustomHooks/useService';
 
 import tagLinksMock from '../mocks/tagLinks.json'
 
 const ResultsPage = () => {
+    const [searchResult, setSearchResult] = useState([]);
+    const service = useService();
+
+    useEffect(() => {
+        service.search().then(r => console.log(r))
+    }, []);
+
     return (
         <Page>
             <Section rounded={4}>

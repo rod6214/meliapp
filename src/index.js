@@ -1,23 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
-// import ResultsPage from './Pages/ResultsPage';
-// import DetailPage from './Pages/DetailPage';
+import { serviceContext } from './CustomHooks/serviceContext'
 
 import NavBar from './Components/Navs/NavBar';
 import NavBarContent from './Components/Navs/NavBarContent';
 import SearchBar from './Components/Navs/SearchBar';
 import Page from './Components/Containers/Page';
-
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
 import Logo from './assets/Logo_ML@2x.png.png';
-import Routes from './Routing/routes'
+import Routes from './Routing/routes';
+import Config from './Config/config.json';
+import MeliData from './Services/meliData';
 
 const App = () => {
 
@@ -26,20 +25,26 @@ const App = () => {
       <route.component {...props} />
     )} />
   ));
+
+  const createServices = () => {
+    return new MeliData(Config);
+  };
   
   return (
-    <Router>
-      <Page>
-          <NavBar>
-              <NavBarContent>
-                  <SearchBar src={Logo} maxWidth="1100px" />
-              </NavBarContent>
-          </NavBar>
-          <Switch>
-          {routes}
-        </Switch>
-      </Page>
-    </Router>
+    <serviceContext.Provider value={createServices()}>
+        <Router>
+        <Page>
+            <NavBar>
+                <NavBarContent>
+                    <SearchBar src={Logo} maxWidth="1100px" />
+                </NavBarContent>
+            </NavBar>
+            <Switch>
+              {routes}
+            </Switch>
+        </Page>
+      </Router>
+    </serviceContext.Provider>
   );
 }
 
