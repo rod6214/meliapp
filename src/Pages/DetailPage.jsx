@@ -22,6 +22,7 @@ const DetailPage = () => {
                 const item = await getItem(id);
                 setProduct(item);
                 setLoaded(true);
+                console.log('d')
             };
 
             fetchProduct();

@@ -22,6 +22,7 @@ const ResultsPage = () => {
                 const matchedItems = await search(query, 4);
                 setSearchResult(matchedItems);
                 setLoaded(true);
+                console.log('r')
             }
             fetchProducts();
         } catch (error) {
