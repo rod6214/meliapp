@@ -23,6 +23,7 @@ const ResultsPage = () => {
                 setSearchResult(matchedItems);
                 setLoaded(true);
                 console.log('r')
+                console.log(matchedItems)
             }
             fetchProducts();
         } catch (error) {
@@ -42,12 +43,10 @@ const ResultsPage = () => {
             <Section>
                 <Content rounded={4} width={75} maxWidth="1100px" backgroundColor='white'>
                     {searchResult.map((item, index) => {
+                        
+                        const hasDivider = (index < searchResult.length - 1);
 
-                        return (<Card key={`card${index}`} thumbnail={item.thumbnail}
-                        price={item.price}
-                        title={item.title}
-                        link={item.link}
-                        state_name={item.state_name} free_shipping divider/>)
+                        return (<Card key={`card${index}`} {...item} divider={hasDivider}/>)
                     })}
                 </Content>
             </Section>

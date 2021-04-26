@@ -26,6 +26,7 @@ class MeliData {
                     state_name: item.address.state_name,
                     price: item.price,
                     link: `/items/${item.id}`,
+                    free_shipping: item?.shipping?.free_shipping || false,
                 };
             });
 
