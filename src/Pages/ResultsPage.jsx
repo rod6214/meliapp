@@ -14,7 +14,7 @@ const ResultsPage = () => {
     const service = useService();
 
     useEffect(() => {
-        service.search().then(r => console.log(r))
+        service.search('mac').then(r => console.log(r))
     }, []);
 
     return (
