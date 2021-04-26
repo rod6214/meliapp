@@ -4,7 +4,7 @@ class MeliData {
         this.config = config;
         this.searchUri = this.getRoute('search');
         this.getItemUri = this.getRoute('getItem');
-        this.getDescription = this.getRoute('getDescription');
+        this.getDescriptionUri = this.getRoute('getDescription');
     }
 
     getRoute = (funcName) => {
@@ -26,6 +26,7 @@ class MeliData {
         }
         
     };
+    
     getItem = async (id) => "getItem Works Fine";
 }
 // .routes.find(route => route.function === "search")

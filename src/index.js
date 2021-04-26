@@ -31,7 +31,7 @@ const App = () => {
   };
   
   return (
-    <serviceContext.Provider value={createServices()}>
+    <serviceContext.Provider value={{meliData: createServices()}}>
         <Router>
         <Page>
             <NavBar>
