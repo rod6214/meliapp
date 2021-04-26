@@ -16,7 +16,13 @@ const ResultsPage = () => {
     const query = useQuery();
 
     useEffect(() => {
-        // service.meliData.search(query.get('search')).then(r => console.log(r))
+        try {
+            service.meliData.search(query.get('search'), 4).then(matchedItems => {
+                setSearchResult([...matchedItems]);
+            });
+        } catch (error) {
+            console.error(error);
+        }
     }, []);
 
     return (
@@ -28,7 +34,14 @@ const ResultsPage = () => {
             </Section>
             <Section>
                 <Content rounded={4} width={75} maxWidth="1100px" backgroundColor='white'>
-                    <Card thumbnail="http://http2.mlstatic.com/D_955205-MLA44925999950_022021-I.jpg"
+                    {searchResult.map((item, index) => {
+
+                        return (<Card key={`card${index}`} thumbnail={item.thumbnail}
+                        price={item.price}
+                        title={item.title}
+                        state_name={item.state_name} free_shipping divider/>)
+                    })}
+                    {/* <Card thumbnail="http://http2.mlstatic.com/D_955205-MLA44925999950_022021-I.jpg"
                         price="1.980"
                         title="Apple Ipod Touch 5g 16gb Negro Igual A Nuevo Completo Unico!"
                         state_name="Capital Federal" free_shipping divider/>
@@ -39,7 +52,7 @@ const ResultsPage = () => {
                     <Card thumbnail="http://http2.mlstatic.com/D_955205-MLA44925999950_022021-I.jpg"
                         price="1.980"
                         title="Apple Ipod Touch 5g 16gb Negro Igual A Nuevo Completo Unico!"
-                        state_name="Capital Federal" free_shipping />
+                        state_name="Capital Federal" free_shipping /> */}
                 </Content>
             </Section>
         </Page>

@@ -15,18 +15,29 @@ class MeliData {
         }
     }
 
-    search = async (searchInput) => {
+    search = async (searchInput, limitResult) => {
         try {
             const data = await fetch(`${this.searchUri}${searchInput}`)
             .then(response => response.json());
-            
-            return data;
+            let products = data.results.map(item => {
+                return {
+                    title: item.title,
+                    thumbnail: item.thumbnail,
+                    state_name: item.address.state_name,
+                    price: item.price,
+                };
+            });
+
+            if (Number.isInteger(limitResult))
+                products = products.slice(0, limitResult);
+
+            return products;
         } catch (error) {
             console.error(error);
         }
         
     };
-    
+
     getItem = async (id) => "getItem Works Fine";
 }
 // .routes.find(route => route.function === "search")
