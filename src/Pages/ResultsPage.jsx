@@ -41,20 +41,9 @@ const ResultsPage = () => {
                         return (<Card key={`card${index}`} thumbnail={item.thumbnail}
                         price={item.price}
                         title={item.title}
+                        link={item.link}
                         state_name={item.state_name} free_shipping divider/>)
                     })}
-                    {/* <Card thumbnail="http://http2.mlstatic.com/D_955205-MLA44925999950_022021-I.jpg"
-                        price="1.980"
-                        title="Apple Ipod Touch 5g 16gb Negro Igual A Nuevo Completo Unico!"
-                        state_name="Capital Federal" free_shipping divider/>
-                    <Card thumbnail="http://http2.mlstatic.com/D_955205-MLA44925999950_022021-I.jpg"
-                        price="1.980"
-                        title="Apple Ipod Touch 5g 16gb Negro Igual A Nuevo Completo Unico!"
-                        state_name="Capital Federal" free_shipping divider/>
-                    <Card thumbnail="http://http2.mlstatic.com/D_955205-MLA44925999950_022021-I.jpg"
-                        price="1.980"
-                        title="Apple Ipod Touch 5g 16gb Negro Igual A Nuevo Completo Unico!"
-                        state_name="Capital Federal" free_shipping /> */}
                 </Content>
             </Section>
         </Page>

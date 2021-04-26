@@ -25,6 +25,7 @@ class MeliData {
                     thumbnail: item.thumbnail,
                     state_name: item.address.state_name,
                     price: item.price,
+                    link: `/items/${item.id}`,
                 };
             });
 
@@ -38,7 +39,38 @@ class MeliData {
         
     };
 
-    getItem = async (id) => "getItem Works Fine";
+    getItem = async (id) => {
+        try {
+            const item = await fetch(this.getItemUri.replace(':id', id))
+            .then(response => response.json());
+
+            const description = await this.getDescription(id);
+            
+            return {
+                title: item.title,
+                thumbnail: Array.isArray(item.pictures) ? item.pictures.length > 0 ? item.pictures[0].url : '' : '',
+                prodCondition: item.condition,
+                soldProducts: item.sold_quantity,
+                price: item.price,
+                description_title: 'Descripcion del producto',
+                description,
+                currency: '$',
+            };
+
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
+    getDescription = async (id) => {
+        try {
+            const data = await fetch(this.getDescriptionUri.replace(':id', id))
+            .then(response => response.json());
+            return data.plain_text;
+        } catch (error) {
+            console.error(error);
+        }
+    }
 }
-// .routes.find(route => route.function === "search")
+
 export default MeliData;

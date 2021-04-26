@@ -3,12 +3,13 @@ import Flex from './Flex';
 import Img from '../Illustrators/Img';
 import Col from '../Containers/Col';
 import Row from '../Containers/Row';
+import { Link } from "react-router-dom";
 
 import Shipping from '../../assets/ic_shipping.png';
 
 const Card = (props) => {
     return (
-        <div>
+        <Link style={{textDecoration:'none', color:'black'}} to={props.link}>
             <Row padding={7}>
                 <Col>
                     <Flex>
@@ -35,7 +36,7 @@ const Card = (props) => {
                 </Col>
             </Row>
             {props.divider && <hr className="w-95 mx-auto text-grey-dark-meli"/>}
-        </div>
+        </Link>
     );
 }
 
