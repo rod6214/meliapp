@@ -22,7 +22,13 @@ const Img = (props) => {
     if (props.inlineBlock)
         imgClass += ' d-inline-block'
 
-    return (<img className={imgClass} src={props.src} height={props.height} width={props.width} alt={props.alt}/>);
+    return (<img className={imgClass} 
+        src={props.src} 
+        height={props.height}
+        width={props.width} 
+        alt={props.alt}
+        style={{maxHeight: props.maxHeight, maxWidth: props.maxWidth}}
+        />);
 }
 
 export default Img;
