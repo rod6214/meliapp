@@ -5,7 +5,7 @@ import Page from '../Components/Containers/Page';
 import Content from '../Components/Containers/Content';
 import Card from '../Components/Containers/Card';
 import Navigator from '../Components/Navs/Navigator';
-import { useSearch } from '../CustomHooks/hookService';
+import { useMeliApiSearch } from '../CustomHooks/hookServices';
 import { useQuery } from '../CustomHooks/useQuery';
 
 import tagLinksMock from '../mocks/tagLinks.json'
@@ -15,7 +15,7 @@ const ResultsPage = () => {
      * Hook de busqueda limitado para un resultado de solo cuatro elementos
      * basado en las especificaciones de los requerimientos del ejercicio
      */
-    const [searchResult, loaded, searchProducts] = useSearch(4);
+    const [searchResult, loaded, searchProducts] = useMeliApiSearch(4);
     // Recuperamos los datos de la query a traves de un hook
     const query = useQuery().get('search');
 
