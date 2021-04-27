@@ -16,9 +16,12 @@ class MeliData {
     }
 
     search = async (searchInput, limitResult) => {
-        try {
-            const data = await fetch(`${this.searchUri}${searchInput}`)
-            .then(response => response.json());
+        const data = await fetch(`${this.searchUri}${searchInput}`)
+            .then(searchResponse => {
+                if (!searchResponse.ok) throw Error(searchResponse.status);
+                const results = searchResponse.json();
+                return results;
+            });
             let products = data.results.map(item => {
                 return {
                     title: item.title,
@@ -34,44 +37,38 @@ class MeliData {
                 products = products.slice(0, limitResult);
 
             return products;
-        } catch (error) {
-            console.error(error);
-        }
-        
     };
 
     getItem = async (id) => {
-        try {
-            const item = await fetch(this.getItemUri.replace(':id', id))
-            .then(response => response.json());
 
-            const description = await this.getDescription(id);
+        const newItem = await fetch(this.getItemUri.replace(':id', id))
+            .then(itemResponse => {
+                if (!itemResponse.ok) throw Error(itemResponse.status);
+                const item = itemResponse.json();
+                return {
+                    id: item.id,
+                    title: item.title,
+                    thumbnail: Array.isArray(item.pictures) ? item.pictures.length > 0 ? item.pictures[0].url : '' : '',
+                    prodCondition: item.condition,
+                    soldProducts: item.sold_quantity,
+                    price: item.price,
+                    description_title: 'Descripcion del producto',
+                    currency: '$',
+                };
+            });
+
+        const description = await this.getDescription(id);
             
-            return {
-                id: item.id,
-                title: item.title,
-                thumbnail: Array.isArray(item.pictures) ? item.pictures.length > 0 ? item.pictures[0].url : '' : '',
-                prodCondition: item.condition,
-                soldProducts: item.sold_quantity,
-                price: item.price,
-                description_title: 'Descripcion del producto',
-                description,
-                currency: '$',
-            };
-
-        } catch (error) {
-            console.error(error);
-        }
+        return {...newItem, description};
     };
 
     getDescription = async (id) => {
-        try {
-            const data = await fetch(this.getDescriptionUri.replace(':id', id))
-            .then(response => response.json());
-            return data.plain_text;
-        } catch (error) {
-            console.error(error);
-        }
+        return await fetch(this.getDescriptionUri.replace(':id', id))
+            .then(response => {
+                if (!response.ok) throw Error(response.status);
+                const description = response.json();
+                return description.plain_text;
+            });
     }
 }
 

@@ -16,7 +16,7 @@ const DetailPage = () => {
     }, [id, loaded, getProduct]);
 
     // Mostrar un contenedor vacion hasta que no se carguen los datos
-    if (!loaded) return (<></>);
+    if (!loaded || !product) return (<></>);
 
     return (
         <Section>
