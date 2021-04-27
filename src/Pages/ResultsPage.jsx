@@ -11,15 +11,21 @@ const ResultsPage = () => {
      * Hook de busqueda limitado para un resultado de solo cuatro elementos
      * basado en las especificaciones de los requerimientos del ejercicio
      */
-    const [searchResult, loaded, searchProducts] = useMeliApiSearch(4);
+    const [searchResult, loaded, error, searchProducts] = useMeliApiSearch(4);
     // Recuperamos los datos de la query a traves de un hook
     const query = useQuery().get('search');
 
     // Se usa effect para cargar los datos despues de renderizar la pagina
     useEffect(() => {
-        if (!loaded) searchProducts(query);
-    }, [query, loaded, searchProducts]);
+        searchProducts(query);
+    }, [query, searchProducts]);
 
+    // Si hubo errores en la consulta muestra un mensaje de error
+    if (error) return (
+        <Section>
+            <Content>Lo sentimos hubo un error!</Content>
+        </Section>);
+    
     // Mostrar un contenedor vacion hasta que no se carguen los datos
     if (!loaded) return (<></>);
 

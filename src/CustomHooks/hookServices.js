@@ -27,74 +27,93 @@ export function useService() {
 export function useMeliApiSearch(limit) {
     const [products, setProducts] = useState([]);
     const [loaded, setLoaded] = useState(false);
+    const [error, setError] = useState(null);
     const { search } = useService().meliData;
 
     const searchProducts = async (queryInput) => {
-        let api_cache = loadApiData();
 
-        // Si no es la misma query consulta a la API
-        if (api_cache.query !== queryInput) {
-            api_cache.query = queryInput;
-            const data = await search(queryInput, limit);
-            api_cache.data = data;
-            setProducts(data);
-            saveApiData(api_cache)
-            console.log('Consulting api in search')
+        // Si aun no ha cargado y no hay errores ejecuta el servicio
+        if (!loaded && !error) {
+            let api_cache = loadApiData();
+
+            // Si no es la misma query consulta a la API
+            if (api_cache.query !== queryInput) {
+                api_cache.query = queryInput;
+                try {
+                    const data = await search(queryInput, limit);
+                    api_cache.data = data;
+                    setProducts(data);
+                    saveApiData(api_cache)
+                    console.log('Consulting api in search')
+                } catch (error) {
+                    setError(error);
+                }
+            }
+            else {
+                // Caso contrario obtener los datos del local storage
+                setProducts(api_cache.data);
+            }
+
+            setLoaded(true);
+
+            return api_cache.query;
         }
-        else {
-            // Caso contrario obtener los datos del local storage
-            setProducts(api_cache.data);
-        }
-
-        setLoaded(true);
-
-        return api_cache.query;
     }
 
-    return [products, loaded, searchProducts];
+    return [products, loaded, error, searchProducts];
 }
 
 // Hook para recuperar un item por id, con optimizacion que almacena items en cache
 export function useMeliApiItem() {
     const [product, setProduct] = useState({});
     const [loaded, setLoaded] = useState(false);
+    const [error, setError] = useState(null);
     const { getItem } = useService().meliData;
 
     const getProduct = async (id) => {
-        let api_cache = loadApiData();
 
-        const changeStates = (item) => {
-            setProduct(item);
-            setLoaded(true);
-        };
+        // Si aun no ha cargado y no hay errores ejecuta el servicio
+        if (!error && !loaded) {
+            let api_cache = loadApiData();
 
-        // Si no hay productos inicializar array
-        if (!api_cache.products)
-            api_cache.products = [];
-        
-        // Si hay productos buscar el id
-        if (api_cache.products.length > 0) {
-            const item = api_cache.products.filter(item => item.id === id);
+            const changeStates = (item) => {
+                setProduct(item);
+                setLoaded(true);
+            };
+    
+            // Si no hay productos inicializar array
+            if (!api_cache.products)
+                api_cache.products = [];
             
-            // Si lo encuentra cargo desde la lista
-            if (item && item.length > 0) {
-                changeStates(item[0]);
-                return;
+            // Si hay productos buscar el id
+            if (api_cache.products.length > 0) {
+                const item = api_cache.products.filter(item => item.id === id);
+                
+                // Si lo encuentra cargo desde la lista
+                if (item && item.length > 0) {
+                    changeStates(item[0]);
+                    return;
+                }
+            }
+            // Caso controrio consultar a la api y luego guardar el objeto en la lista
+            // Cola api_cache.products (FIFO) 
+            // Si la lista tiene mas de 5 elementos elimina el primero
+            if (api_cache.products.length > Queue_Max_Size)
+                api_cache.products.shift();
+            
+            try {
+                // Llamar a la api con el nuevo elemento
+                const item = await getItem(id);
+                changeStates(item);
+                // Guardar los cambios en la lista y en el local storage (agrega a lo ultimo)
+                api_cache.products = [...api_cache.products, item];
+                saveApiData(api_cache);
+                console.log('Consulting api in getItem')
+            } catch (error) {
+                setError(error);
             }
         }
-        // Caso controrio consultar a la api y luego guardar el objeto en la lista
-        // Cola api_cache.products (FIFO) 
-        // Si la lista tiene mas de 5 elementos elimina el primero
-        if (api_cache.products.length > Queue_Max_Size)
-            api_cache.products.shift();
-        // Llamar a la api con el nuevo elemento
-        const item = await getItem(id);
-        changeStates(item);
-        // Guardar los cambios en la lista y en el local storage (agrega a lo ultimo)
-        api_cache.products = [...api_cache.products, item];
-        saveApiData(api_cache);
-        console.log('Consulting api in getItem')
     }
 
-    return [product, loaded, getProduct];
+    return [product, loaded, error, getProduct];
 }
