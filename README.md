@@ -20,7 +20,7 @@ You will also see any lint errors in the console.
 
 ## 📘 About the Project
 
-There are three more important views in the **Pages** folder regarding **MELI Challenge**, you can match there:
+There are three important views in the **Pages** folder regarding **MELI Challenge**, you can match there:
 
 - DetailPage (Show Product Detail)
 - ResultsPage (Show Results of searching)
