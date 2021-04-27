@@ -5,7 +5,7 @@ import Page from '../Components/Containers/Page';
 import Content from '../Components/Containers/Content';
 import Card from '../Components/Containers/Card';
 import Navigator from '../Components/Navs/Navigator';
-import { useSearch } from '../CustomHooks/useService';
+import { useSearch } from '../CustomHooks/hookService';
 import { useQuery } from '../CustomHooks/useQuery';
 
 import tagLinksMock from '../mocks/tagLinks.json'

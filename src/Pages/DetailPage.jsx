@@ -6,7 +6,7 @@ import Content from '../Components/Containers/Content';
 import Navigator from '../Components/Navs/Navigator';
 import Product from '../Components/Containers/Product';
 import { useParams } from "react-router-dom";
-import { useService } from '../CustomHooks/useService';
+import { useService } from '../CustomHooks/hookService';
 
 import tagLinksMock from '../mocks/tagLinks.json'
 
