@@ -5,31 +5,35 @@ import Page from '../Components/Containers/Page';
 import Content from '../Components/Containers/Content';
 import Card from '../Components/Containers/Card';
 import Navigator from '../Components/Navs/Navigator';
-import { useService } from '../CustomHooks/useService';
+import { useService, useSearch } from '../CustomHooks/useService';
 import { useQuery } from '../CustomHooks/useQuery';
 
 import tagLinksMock from '../mocks/tagLinks.json'
 
 const ResultsPage = () => {
-    const [searchResult, setSearchResult] = useState([]);
-    const [loaded, setLoaded] = useState(false);
-    const { search } = useService().meliData;
+    // const [searchResult, setSearchResult] = useState([]);
+    const [searchResult, loaded, searchProducts] = useSearch(4);
+    // const [loaded, setLoaded] = useState(false);
+    // const { search } = useService().meliData;
     const query = useQuery().get('search');
 
     useEffect(() => {
-        try {
-            const fetchProducts = async () => {
-                const matchedItems = await search(query, 4);
-                setSearchResult(matchedItems);
-                setLoaded(true);
-                console.log('r')
-                console.log(matchedItems)
-            }
-            fetchProducts();
-        } catch (error) {
-            console.error(error);
-        }
-    }, [search, query]);
+        searchProducts(query);
+        
+        console.log(searchResult)
+        // try {
+        //     const fetchProducts = async () => {
+        //         const matchedItems = await search(query, 4);
+        //         setSearchResult(matchedItems);
+        //         setLoaded(true);
+        //         console.log('r')
+        //         console.log(matchedItems)
+        //     }
+        //     fetchProducts();
+        // } catch (error) {
+        //     console.error(error);
+        // }
+    }, [query, loaded]);
 
     if (!loaded) return (<></>);
 

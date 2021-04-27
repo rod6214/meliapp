@@ -31,18 +31,18 @@ const App = () => {
   };
   
   return (
-    <serviceContext.Provider value={{meliData: createServices()}}>
+    <serviceContext.Provider value={{meliData: createServices(), cache:{}}}>
         <Router>
-        <Page>
-            <NavBar>
-                <NavBarContent>
-                    <SearchBar src={Logo} maxWidth="1100px" />
-                </NavBarContent>
-            </NavBar>
-            <Switch>
-              {routes}
-            </Switch>
-        </Page>
+          <Page>
+              <NavBar>
+                  <NavBarContent>
+                      <SearchBar src={Logo} maxWidth="1100px" />
+                  </NavBarContent>
+              </NavBar>
+              <Switch>
+                {routes}
+              </Switch>
+          </Page>
       </Router>
     </serviceContext.Provider>
   );
