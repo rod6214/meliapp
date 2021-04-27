@@ -29,7 +29,7 @@ const Card = (props) => {
                                     me={7}/>
                             </Link>
                             <Col>
-                                <PriceBox className="mb-8 mt-1" 
+                                <PriceBox className="mb-8 mt-1 font-bold" 
                                             integerFontSize={11}
                                             decimalFontSize={8}
                                             price={props.price}
@@ -37,7 +37,7 @@ const Card = (props) => {
                                             decimalLeft="0.1em">
                                             {shippingFlag(props)}
                                 </PriceBox>
-                                <Link className="card-link" to={props.link}>
+                                <Link className="card-link font-bold" to={props.link}>
                                     <p className="fs-10">{props.title}</p>
                                 </Link>
                             </Col>
