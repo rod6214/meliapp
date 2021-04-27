@@ -20,18 +20,21 @@ import MeliData from './Services/meliData';
 
 const App = () => {
 
+  // Mapeo de las rutas previamente cargadas desde ./Routing/routes
   const routes = Routes.map((route, index) => (
     <Route key={`sw${index}`} exact={route.exact} path={route.path} render={(props) => (
       <route.component {...props} />
     )} />
   ));
-
-  const createServices = () => {
+  
+  // Function para crear los servicios de MELI con la configuracion cargada desde /Config/config.json
+  const createMeliService = () => {
     return new MeliData(Config);
   };
   
+  // Se usa el hook useContext para tener el servicio de MELI disponible globalmente
   return (
-    <serviceContext.Provider value={{meliData: createServices(), cache:{}}}>
+    <serviceContext.Provider value={{meliData: createMeliService()}}>
         <Router>
           <Page>
               <NavBar>

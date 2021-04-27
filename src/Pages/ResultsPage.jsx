@@ -27,6 +27,8 @@ const ResultsPage = () => {
     // Mostrar un contenedor vacion hasta que no se carguen los datos
     if (!loaded) return (<></>);
 
+    // Para SEO se utiliza una etiqueta <meta/> dentro del componente PriceBox
+    // para mejorar los resultados en los motores de busqueda
     return (
         <Page>
             <Section rounded={4}>

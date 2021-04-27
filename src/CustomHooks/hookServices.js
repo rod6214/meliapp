@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import { serviceContext } from './serviceContext';
 
-const Stack_Max_Size = 5;
+const Queue_Max_Size = 5;
 
 const loadApiData = () => {
     let api_cache = localStorage.getItem('api_cache');
@@ -83,14 +83,14 @@ export function useMeliApiItem() {
             }
         }
         // Caso controrio consultar a la api y luego guardar el objeto en la lista
-
-        // Si la lista tiene mas de 5 elementos hacer pop
-        if (api_cache.products.length > Stack_Max_Size)
-            api_cache.products.pop();
+        // Cola api_cache.products (FIFO) 
+        // Si la lista tiene mas de 5 elementos elimina el primero
+        if (api_cache.products.length > Queue_Max_Size)
+            api_cache.products.shift();
         // Llamar a la api con el nuevo elemento
         const item = await getItem(id);
         changeStates(item);
-        // Guardar los cambios en la lista y en el local storage
+        // Guardar los cambios en la lista y en el local storage (agrega a lo ultimo)
         api_cache.products = [...api_cache.products, item];
         saveApiData(api_cache);
         console.log('Consulting api in getItem')

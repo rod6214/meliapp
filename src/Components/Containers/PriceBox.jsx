@@ -6,7 +6,7 @@ const Product = (props) => {
 
     const intergerPartClass = `fs-${props.integerFontSize}`;
     const decimalPartClass = `fs-${props.decimalFontSize}`;
-
+    // Para SEO se utiliza una etiqueta <meta/> dentro de este componente
     return (
         <div className={props.className} style={{position: 'relative'}}>
             <meta itemProp="price" content={props.price}/>
