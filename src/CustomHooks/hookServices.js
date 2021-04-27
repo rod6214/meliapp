@@ -9,7 +9,7 @@ const loadApiData = () => {
     if (!api_cache)
         api_cache = {};
     else
-        api_cache = await JSON.parse(api_cache);
+        api_cache = JSON.parse(api_cache);
     
     return api_cache;
 }
@@ -47,6 +47,8 @@ export function useMeliApiSearch(limit) {
         }
 
         setLoaded(true);
+
+        return api_cache.query;
     }
 
     return [products, loaded, searchProducts];
@@ -70,13 +72,13 @@ export function useMeliApiItem() {
         if (!api_cache.products)
             api_cache.products = [];
         
-        
         // Si hay productos buscar el id
         if (api_cache.products.length > 0) {
-            const item = api_cache.products.some(item => item.id === id);
+            const item = api_cache.products.filter(item => item.id === id);
+            
             // Si lo encuentra cargo desde la lista
-            if (item) {
-                changeStates(item);
+            if (item && item.length > 0) {
+                changeStates(item[0]);
                 return;
             }
         }
@@ -91,6 +93,7 @@ export function useMeliApiItem() {
         // Guardar los cambios en la lista y en el local storage
         api_cache.products = [...api_cache.products, item];
         saveApiData(api_cache);
+        console.log('Consulting api in getItem')
     }
 
     return [product, loaded, getProduct];

@@ -21,8 +21,8 @@ const ResultsPage = () => {
 
     // Se usa effect para cargar los datos despues de renderizar la pagina
     useEffect(() => {
-        searchProducts(query);
-    }, [query, loaded]);
+        if (!loaded) searchProducts(query);
+    }, [query, loaded, searchProducts]);
 
     // Mostrar un contenedor vacion hasta que no se carguen los datos
     if (!loaded) return (<></>);

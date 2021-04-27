@@ -1,36 +1,26 @@
 import React from 'react-dom';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import Section from '../Components/Containers/Section'
 import Page from '../Components/Containers/Page';
 import Content from '../Components/Containers/Content';
 import Navigator from '../Components/Navs/Navigator';
 import Product from '../Components/Containers/Product';
 import { useParams } from "react-router-dom";
-import { useService } from '../CustomHooks/hookServices';
+import { useMeliApiItem } from '../CustomHooks/hookServices';
 
 import tagLinksMock from '../mocks/tagLinks.json'
 
 const DetailPage = () => {
+    // Obtencion del parametro de ruta id por medio del hook
     let { id } = useParams();
-    const [product, setProduct] = useState({});
-    const [loaded, setLoaded] = useState(false);
-    const { getItem } = useService().meliData;
+    const [product, loaded, getProduct] = useMeliApiItem();
     
+    // Se usa effect para cargar los datos despues de renderizar la pagina
     useEffect(() => {
-        try {
-            const fetchProduct = async () => {
-                const item = await getItem(id);
-                setProduct(item);
-                setLoaded(true);
-                console.log('d')
-            };
+        if (!loaded) getProduct(id);
+    }, [id, loaded, getProduct]);
 
-            fetchProduct();
-        } catch (error) {
-            console.error(error);
-        }
-    }, [id, getItem]);
-
+    // Mostrar un contenedor vacion hasta que no se carguen los datos
     if (!loaded) return (<></>);
 
     return (

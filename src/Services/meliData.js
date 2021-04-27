@@ -48,6 +48,7 @@ class MeliData {
             const description = await this.getDescription(id);
             
             return {
+                id: item.id,
                 title: item.title,
                 thumbnail: Array.isArray(item.pictures) ? item.pictures.length > 0 ? item.pictures[0].url : '' : '',
                 prodCondition: item.condition,
