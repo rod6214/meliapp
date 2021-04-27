@@ -5,6 +5,8 @@ import Content from '../Components/Containers/Content';
 import Card from '../Components/Containers/Card';
 import { useMeliApiSearch } from '../CustomHooks/hookServices';
 import { useQuery } from '../CustomHooks/useQuery';
+import MetaTags from 'react-meta-tags';
+import { convertFirstLetterToUpperCase } from '../Utils/format';
 
 const ResultsPage = () => {
     /*
@@ -15,6 +17,7 @@ const ResultsPage = () => {
     // Recuperamos los datos de la query a traves de un hook
     const query = useQuery().get('search');
 
+    const title = document.title;
     // Se usa effect para cargar los datos despues de renderizar la pagina
     useEffect(() => {
         searchProducts(query);
@@ -33,9 +36,12 @@ const ResultsPage = () => {
     // para mejorar los resultados en los motores de busqueda
     return (
         <Section>
+            <MetaTags>
+                {/*Se actualiza el titulo con la query consultada como SEO*/}
+                <title>{`${convertFirstLetterToUpperCase(query)} | Mercado Libre Argentina`}</title>
+            </MetaTags>
             <Content rounded={4} width={75} maxWidth="1100px" backgroundColor='white'>
                 {searchResult?.map((item, index) => {
-                    
                     // No renderizar el separador si es el ultimo elemento
                     const hasDivider = (index < searchResult.length - 1);
 

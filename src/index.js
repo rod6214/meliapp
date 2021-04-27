@@ -21,6 +21,7 @@ import Section from './Components/Containers/Section';
 import Content from './Components/Containers/Content';
 import Navigator from './Components/Navs/Navigator';
 import tagLinksMock from './mocks/tagLinks.json'
+import MetaTags from 'react-meta-tags';
 
 const App = () => {
 
@@ -50,13 +51,17 @@ const App = () => {
     <serviceContext.Provider value={{meliData: createMeliService()}}>
         <Router>
           <Page>
+              <MetaTags>
+                  {/* Metadata SEO con algun mensaje emblematico de la empresa */}
+                  <meta name="description" content="La comunidad de compra y venta online más grande de América Latina." />
+              </MetaTags>
               <NavBar>
                   <NavBarContent>
                       <SearchBar src={Logo} maxWidth="1100px" />
                   </NavBarContent>
               </NavBar>
               <Switch>
-              {routes}
+                {routes}
               </Switch>
           </Page>
       </Router>

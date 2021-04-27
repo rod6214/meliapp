@@ -22,3 +22,5 @@ export const formatPriceARS = (price) =>  formatPrice({
         price});
 
 export const formatProductCondition = (condition) => productCondition[condition];
+
+export const convertFirstLetterToUpperCase = (value) => value.charAt(0).toUpperCase() + value.substr(1, value.length - 1);
