@@ -47,8 +47,6 @@ class MeliData {
             });
         
         const description = await this.getDescription(id);
-
-        console.log(description)
         
         return {
                 id: item.id,
