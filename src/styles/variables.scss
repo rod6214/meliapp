@@ -1,9 +1,18 @@
+// Variable personalizada para el radio de borde
+$border-radius-meli: 4px;
+// Variables perzonalizadas para colores
 // Colores especificados para MELI
+$yelow-meli: #FFE600;
+$grey-meli: #EEEEEE;
+$grey-dark-meli: #999999;
+$primary-meli: #3483FA;
+$black-meli: #333333;
+
 $meli-colors: (
-  "yelow-meli": #FFE600,
-  "grey-meli": #EEEEEE,
-  "grey-dark-meli": #999999,
-  "primary-meli": #3483FA
+  "yelow-meli": $yelow-meli,
+  "grey-meli": $grey-meli,
+  "grey-dark-meli": $grey-dark-meli,
+  "primary-meli": $primary-meli
 );
 
 // Espacios de las especificaciones
@@ -23,13 +32,12 @@ $meli-font-sizes: (
   12: 46px,
 );
 
-// Variable personalizada para el radio de borde
-$border-radius-meli: 4px;
+
 // Assigne custom values
 $input-border-width: 0;
 $input-font-size: 18px;
-$input-color: #333333;
+$input-color: $black-meli;
 $input-focus-color: $input-color;
-$input-placeholder-color: #999999;
-$body-bg: #EEEEEE;
+$input-placeholder-color: $grey-dark-meli;
+$body-bg: $grey-meli;
 $btn-border-radius: 0;

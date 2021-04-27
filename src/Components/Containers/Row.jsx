@@ -2,7 +2,7 @@ import React from 'react-dom';
 
 const Row = (props) => {
 
-    let rowClass = 'row';
+    let rowClass = `row ${props.className}`;
 
     if (Number.isInteger(props.padding))
         rowClass += ` p-${props.padding}`;

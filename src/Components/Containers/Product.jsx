@@ -14,7 +14,7 @@ const Product = (props) => {
         <Content padding={8} rounded={4} width={75} maxWidth="1100px" backgroundColor='white'>
                 <Row>
                     <Col md span={8} text_center>
-                        <Img maxHeight={680} src={props.thumbnail} alt="detail-image" />
+                        <Img className="ratio ratio-680x680" maxHeight={680} src={props.thumbnail} alt="detail-image" />
                     </Col>
                     <Col md span={4} px={8}>
                         <div className="pb-7"><span className="fs-10">{`${formatProductCondition(props.prodCondition)} - ${props.soldProducts} Vendidos`}</span></div>

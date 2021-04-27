@@ -6,6 +6,7 @@ import Row from '../Containers/Row';
 import { Link } from "react-router-dom";
 import PriceBox from './PriceBox';
 
+import './scss/card.scss'
 import Shipping from '../../assets/ic_shipping.png';
 
 const Card = (props) => {
@@ -16,16 +17,17 @@ const Card = (props) => {
         ms={4}/>);
 
     return (
-        <Link style={{textDecoration:'none', color:'black'}} to={props.link}>
-            <Row padding={7}>
+        <Row padding={7}>
                     <Col md span={10}>
                         <Flex>
-                            <Img inlineBlock 
-                                width={180} 
-                                height={180} 
-                                src={props.thumbnail}
-                                alt="Card Image"
-                                me={7}/>
+                            <Link className="card-link" to={props.link}>
+                                <Img inlineBlock 
+                                    width={180} 
+                                    height={180} 
+                                    src={props.thumbnail}
+                                    alt="Card Image"
+                                    me={7}/>
+                            </Link>
                             <Col>
                                 <PriceBox className="mb-8 mt-1" 
                                             integerFontSize={11}
@@ -35,7 +37,9 @@ const Card = (props) => {
                                             decimalLeft="0.1em">
                                             {shippingFlag(props)}
                                 </PriceBox>
-                                <p className="fs-10">{props.title}</p>     
+                                <Link className="card-link" to={props.link}>
+                                    <p className="fs-10">{props.title}</p>
+                                </Link>
                             </Col>
                         </Flex>
                     </Col>
@@ -44,9 +48,8 @@ const Card = (props) => {
                             <p className="fs-8 mb-0 mt-3 d-block">{props.state_name}</p>
                         </Col>
                     </Col>
-            </Row>
             {props.divider && <hr className="w-95 mx-auto text-grey-dark-meli"/>}
-        </Link>
+            </Row>
     );
 }
 
