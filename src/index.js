@@ -17,13 +17,26 @@ import Logo from './assets/Logo_ML@2x.png.png';
 import Routes from './Routing/routes';
 import Config from './Config/config.json';
 import MeliData from './Services/meliData';
+import Section from './Components/Containers/Section';
+import Content from './Components/Containers/Content';
+import Navigator from './Components/Navs/Navigator';
+import tagLinksMock from './mocks/tagLinks.json'
 
 const App = () => {
 
-  // Mapeo de las rutas previamente cargadas desde ./Routing/routes
+  // Mapeo de las rutas para <Route/> cargadas desde ./Routing/routes
   const routes = Routes.map((route, index) => (
     <Route key={`sw${index}`} exact={route.exact} path={route.path} render={(props) => (
-      <route.component {...props} />
+      <Page>
+          {/* Renderizar el "mock navigator" para aquellas rutas que lo requieran */}
+          {/* "mock navigator": es un componente opcional que se activa desde routes.js */}
+          {route.navigator && <Section rounded={4}>
+                                  <Content width={75} maxWidth="1100px">
+                                      <Navigator tag="resultNav" links={tagLinksMock}/>
+                                  </Content>
+                              </Section>}
+          <route.component {...props} />
+        </Page>
     )} />
   ));
   
@@ -43,7 +56,7 @@ const App = () => {
                   </NavBarContent>
               </NavBar>
               <Switch>
-                {routes}
+              {routes}
               </Switch>
           </Page>
       </Router>

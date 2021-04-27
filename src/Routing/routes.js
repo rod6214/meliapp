@@ -12,10 +12,12 @@ const routes = [
         path:'/items',
         component: ResultsPage,
         exact: true,
+        navigator: true,
     },
     {
         path:'/items/:id',
-        component: DetailPage 
+        component: DetailPage,
+        navigator: true, 
     },
 ]
 

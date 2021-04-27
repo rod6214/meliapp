@@ -1,4 +1,4 @@
-// Create your own map
+// Colores especificados para MELI
 $meli-colors: (
   "yelow-meli": #FFE600,
   "grey-meli": #EEEEEE,
@@ -6,12 +6,14 @@ $meli-colors: (
   "primary-meli": #3483FA
 );
 
+// Espacios de las especificaciones
 $meli-spacers: (
   6: 3%,
   7: 16px,
   8: 32px,
 );
 
+// Tamaños de fuentes personalizadas
 $meli-font-sizes: (
   7: 12px,
   8: 14px,
@@ -21,7 +23,7 @@ $meli-font-sizes: (
   12: 46px,
 );
 
-// Custom variables
+// Variable personalizada para el radio de borde
 $border-radius-meli: 4px;
 // Assigne custom values
 $input-border-width: 0;

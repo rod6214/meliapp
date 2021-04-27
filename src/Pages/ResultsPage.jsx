@@ -1,14 +1,10 @@
 import React from 'react-dom';
 import { useEffect } from 'react';
 import Section from '../Components/Containers/Section'
-import Page from '../Components/Containers/Page';
 import Content from '../Components/Containers/Content';
 import Card from '../Components/Containers/Card';
-import Navigator from '../Components/Navs/Navigator';
 import { useMeliApiSearch } from '../CustomHooks/hookServices';
 import { useQuery } from '../CustomHooks/useQuery';
-
-import tagLinksMock from '../mocks/tagLinks.json'
 
 const ResultsPage = () => {
     /*
@@ -30,23 +26,17 @@ const ResultsPage = () => {
     // Para SEO se utiliza una etiqueta <meta/> dentro del componente PriceBox
     // para mejorar los resultados en los motores de busqueda
     return (
-        <Page>
-            <Section rounded={4}>
-                <Content width={75} maxWidth="1100px">
-                    <Navigator tag="resultNav" links={tagLinksMock}/>
-                </Content>
-            </Section>
-            <Section>
-                <Content rounded={4} width={75} maxWidth="1100px" backgroundColor='white'>
-                    {searchResult?.map((item, index) => {
-                        
-                        const hasDivider = (index < searchResult.length - 1);
+        <Section>
+            <Content rounded={4} width={75} maxWidth="1100px" backgroundColor='white'>
+                {searchResult?.map((item, index) => {
+                    
+                    // No renderizar el separador si es el ultimo elemento
+                    const hasDivider = (index < searchResult.length - 1);
 
-                        return (<Card key={`card${index}`} {...item} divider={hasDivider}/>)
-                    })}
-                </Content>
-            </Section>
-        </Page>
+                    return (<Card key={`card${index}`} {...item} divider={hasDivider}/>)
+                })}
+            </Content>
+        </Section>
     )
 }
 

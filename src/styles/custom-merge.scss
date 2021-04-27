@@ -3,6 +3,7 @@ $utilities:map-remove($utilities, "rounded-start");
 $utilities:map-remove($utilities, "rounded");
 $utilities:map-remove($utilities, "width");
 
+// rounded-end (top-right/bottom-right) personalizado con el borde especificado de 4px
 $utilities:map-merge($utilities, (
   "rounded-end": (
       property: border-top-right-radius border-bottom-right-radius,
@@ -11,6 +12,7 @@ $utilities:map-merge($utilities, (
     )
 ));
 
+// rounded-start (top-left/bottom-left) personalizado con el borde especificado de 4px
 $utilities:map-merge($utilities, (
   "rounded-start": (
       property: border-bottom-left-radius border-top-left-radius,
@@ -19,6 +21,7 @@ $utilities:map-merge($utilities, (
     )
 ));
 
+// rounded personalizado con el borde especificado de 4px
 $utilities:map-merge($utilities, (
   "rounded": (
     property: border-radius,
@@ -36,6 +39,7 @@ $utilities:map-merge($utilities, (
   )
 ));
 
+// Anchos personalizados de 30%, 33%, 35% y 95%
 $utilities:map-merge($utilities, (
   "width": (
       property: width,
